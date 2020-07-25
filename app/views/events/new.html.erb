@@ -1,0 +1,19 @@
+<h1>Create a new awesome EVENT</h1>
+
+<% if @event.errors.any? %>
+ <div id="error_explanation">
+   <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+   <ul>
+   <% @event.errors.full_messages.each do |msg| %>
+     <li><%= msg %></li>
+   <% end %>
+   </ul>
+ </div>
+<% end %>
+
+<%= form_for @event do |f| %>
+   <%= f.label :date, value: 'Date: ' %>
+   <%= f.date_field :date, value: f.object.try(:strftime,"%d/%m/%Y") %><br><br>
+   <%= f.submit "Create" %>
+<% end %>

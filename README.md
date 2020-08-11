@@ -1,24 +1,38 @@
-# README
+# private-events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+These project is intended to give me the full potential of working with associations.
 
-Things you may want to cover:
+## Built With
 
-* Ruby version
+- Ruby
+- Rails
+- Rubocop
+- Rspec
 
-* System dependencies
+## Pre-requisites
 
-* Configuration
+You must have Ruby installed on your local computer
 
-* Database creation
+## Installing Ruby re-former and running locally
 
-* Database initialization
+After cloning this repo, cd into it, then run rails server. The app should be running on localhost port 3000 (i.e: localhost:3000). Using your favorite browser, go on that link and test it by cgoing on http://localhost:3000/
 
-* How to run the test suite
+## Author
 
-* Services (job queues, cache servers, search engines, etc.)
+👤 **Christian Jabiro**
 
-* Deployment instructions
+- Github: [@jabichris](https://github.com/jabichris)
+- Twitter: [@JabiroChristian](https://twitter.com/JabiroChristian)
+- Linkedin: [Jabiro Christian](https://www.linkedin.com/in/jabiro-christian-b01054115/)
 
-* ...
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Everyone that supported for the development of this project
+
+## 📝 License
+
+Distributed by the GNU General Public License. See `LICENSE` for more information.

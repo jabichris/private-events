@@ -36,7 +36,7 @@ class Event < ApplicationRecord
   end
 
   def add_new_attendee(user)
-    attendance = attendees.push(user)
+    attendees.push(user)
     if_invitation_update(user)
   rescue ActiveRecord::RecordNotUnique
     errors.add(:attendees, :register_already, message: " #{user.username} you are already attending this event!")

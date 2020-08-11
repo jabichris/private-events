@@ -1,9 +1,10 @@
+# rubocop:disable Metrics/BlockLength
 require 'rails_helper'
 
 RSpec.feature 'Events', type: :feature, js: true do
   context 'create a new event' do
     before(:each) do
-      u = User.create(username: 'User 1 test')
+      User.create(username: 'User 1 test')
       visit root_path
       click_link 'Sign in'
       within('form') do
@@ -53,7 +54,7 @@ RSpec.feature 'Events', type: :feature, js: true do
   context 'can see event details' do
     before(:each) do
       u = User.create(username: 'User 1 test')
-      e = Event.create(creator_id: u.id, title: 'Event test', date: Time.now + 100_000)
+      Event.create(creator_id: u.id, title: 'Event test', date: Time.now + 100_000)
     end
     scenario 'should be successful' do
       visit root_path
@@ -63,3 +64,4 @@ RSpec.feature 'Events', type: :feature, js: true do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

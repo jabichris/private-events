@@ -22,11 +22,9 @@ module EventsHelper
   def can_see_event?
     if current_user.nil?
       false
-    else
-      if current_user.id == @event.creator_id ||
-         @event.user_in_invited_list?(current_user.id)
-        true
-      end
+    elsif current_user.id == @event.creator_id ||
+          @event.user_in_invited_list?(current_user.id)
+      true
     end
   end
 end

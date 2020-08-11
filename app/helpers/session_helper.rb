@@ -17,7 +17,7 @@ module SessionHelper
     Event.find(cookies[:event])
   rescue StandardError
     nil
-end
+  end
 
   def visited_event_set(event_id)
     cookies[:event] = event_id

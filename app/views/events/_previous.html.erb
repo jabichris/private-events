@@ -1,0 +1,9 @@
+<h3><%= previous_events? %></h3>
+<ul>
+  <% @previous.each do |event| %>
+    <li>
+    <%= link_to  event.title, event_path(event) %>
+    <span><%= event.date.strftime("Event's day was on %m/%d/%Y at %H:%M") %></span>
+    </li>
+  <% end %>
+</ul>

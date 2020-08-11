@@ -1,6 +1,16 @@
-<h1>Welcome <%= current_user.username %></h1>
-
-<%= link_to  "Create a new event", new_event_path %>
+<h1><%= user_name_in_title %></h1>
 <div>
-  <%= user_created_events %>
+  <h3>Events created by <%= user_name_in_list %></h3>
+  <%= render 'upcoming_created_events' %>
+  <%= render 'previous_created_events' %>
+  <h3>Events attended by <%= user_name_in_list %></h3>
+  <%= render 'upcoming_attended_events' %>
+  <ul>	  <%= render 'previous_attended_events' %>
+
+</div>
+<div>
+<%#= events_attended%>
+</div>
+<div>See more events 
+<%= link_to "here", controller: 'events' %>
 </div>

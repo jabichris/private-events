@@ -1,0 +1,9 @@
+<h3><%= upcoming_events? %></h3>
+<ul>
+  <% @upcoming.each do |event| %>
+    <li>
+    <%= link_to  event.title, event_path(event) %>
+    <span><%= event.date.strftime("Event's day on %m/%d/%Y at %H:%M") %></span>
+    </li>
+  <% end %>
+</ul>

@@ -3,12 +3,35 @@ module UsersHelper
     params.require(:user).permit(:username)
   end
 
-  def user_created_events
-    html_to_render = '<ul>'
-    current_user.events.each do |event|
-      p html_to_render += "<li> #{event.date} </li>"
+  def previous_created?
+    @user.past_created_events.count.positive? ? 'Previous: ' : 'No previous events'
+  end
+
+  def upcoming_created?
+    @user.upcoming_created_events.count.positive? ? 'Upcoming: ' : 'No upcomming events'
+  end
+
+  def previous?
+    @user.past_events.count.positive? ? 'Previous: ' : 'No previous events'
+  end
+
+  def upcoming?
+    @user.upcoming_events.count.positive? ? 'Upcoming: ' : 'No upcomming events'
+  end
+
+  def user_name_in_title
+    if !current_user.nil? && current_user.id == @user.id
+      "Welcome #{current_user.username}"
+    else
+      "Profile of #{@user.username}"
     end
-    html_to_render += '</ul>'
-    html_to_render.html_safe
-end
+  end
+
+  def user_name_in_list
+    if !current_user.nil? && @user.id == current_user.id
+      'you'
+    else
+      @user.username
+    end
+  end
 end

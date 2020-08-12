@@ -1,0 +1,33 @@
+<h1> <%= @event.title%> </h1>
+<b>Description:</b><h2><%= @event.description %></h2>
+<p>Date:<%=@event.date%></p>
+<p>Location: <%= @event.location %></p>
+<h4>Created by: <%=link_to @event.creator.username, @event.creator %></h4>
+
+<%= form_for(@event, url: events_attend_to_event_url, method: :post  ) do |f| %>
+  <%= f.hidden_field :id %>
+  <%= f.submit "Attend" %>
+<% end %>
+
+<h3>
+<%= have_attendees? %>
+</h3>
+
+<ul>
+  <% @attendees_members.each do |attendee| %>
+    <li>
+      <%=link_to attendee.username, user_path(attendee) %>
+    </li>
+  <% end %>
+</ul>
+<%if current_user.id == @event.creator.id %>
+  <h4>People to invite</h4>
+  <ul>
+  <% @uninvited_people.each do |user| %>
+    <li>
+    <%= link_to user.username + '\'s profile', user_path(user) %> 
+      <%= link_to 'invite', events_invite_to_event_path(event: @event.id, invitee: user.id ),
+          method: :invite_to_event, data: {confirm: "Invite #{user.username}?"} %>    </li>
+  <% end %>
+  </ul>
+<% end %>

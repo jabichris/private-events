@@ -1,0 +1,12 @@
+<h1>Sign in</h1>
+
+
+<%= form_for(@user, url: '/users/logging') do |f| %>
+   <%= f.label :username, value: 'User name: ' %>
+   <%= f.text_field :username, placeholder: 'username' %><br>
+   <%= f.submit "Sign in" %>
+ <% end %>
+ <span>
+Don't have an account?
+sign up <%= link_to 'here',  new_user_path %>
+</span>

@@ -1,0 +1,7 @@
+<h1>Sign up</h1>
+
+<%= form_for @user do |f| %>
+   <%= f.label :username, value: 'User name: ' %>
+   <%= f.text_field :username, placeholder: 'username' %><br>
+   <%= f.submit "Sign up" %>
+ <% end %> 

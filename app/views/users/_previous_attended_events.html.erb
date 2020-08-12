@@ -1,0 +1,8 @@
+<h5><%= previous? %></h5>
+<% unless @user.past_events.count.zero?%>
+   <ul>
+  <% @user.past_events.each do |event| %>
+    <li><%= link_to event.title, event %> </li>
+  <% end %>
+  </ul>
+<% end %>

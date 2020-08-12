@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PrivateEvent</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <%= link_to 'Home', root_path%>
+  <% if session[:user].nil? %>
+  <%= link_to 'Sign in', users_sign_in_path%>
+  <%= link_to 'Sign up', new_user_path%>
+  <% else %>
+  <%= link_to 'Sign out', users_sign_out_path %>
+  <%= link_to current_user.username, current_user %>
+  <%= link_to 'Create a new event', new_event_path %>
+  <%= link_to  "Notifications (#{user_pending_invitations(current_user.id)})", users_notifications_path %>
+  <% end %>
+  <% if !flash[:error].nil? %>
+  <div id="error_explanation">
+    <strong><%= flash[:error] %></strong>
+  </div>
+  <% end %>
+    <%= yield %>
+  </body>
+</html>
